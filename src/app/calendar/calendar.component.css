@@ -1,0 +1,61 @@
+
+.calendar {
+
+}
+
+.calendar .calendar-row {
+
+}
+
+.calendar .calendar-row div {
+	cursor: pointer;
+}
+
+.calendar .calendar-row:first-child div {
+	display: inline-block;
+	line-height: 47px;
+}
+
+.calendar .calendar-row div.left-arrow {
+	text-align: left;
+	font-size: 24px;
+	width: 20%;
+	cursor: pointer;
+}
+
+.calendar .calendar-row div.right-arrow {
+	text-align: right;
+	font-size: 24px;
+	width: 13%;
+	cursor: pointer;
+}
+
+.calendar .calendar-row div.month-name {
+	text-align: center;
+	font-size: 24px;
+	width: 60%;
+	font-weight: 700;
+}
+
+.calendar .calendar-row:not(:first-child) div {
+	display: inline-block;
+	width: 14%;
+	line-height: 47px;
+	text-align: center;
+}
+
+.calendar .calendar-row:not(:first-child) div.active {
+	background-color: #40a3ff;
+	border-radius: 50%;
+	color: #FFF;
+}
+
+.calendar .btn-search {
+	height: 34px;
+	border-radius: 3px;
+	background-color: #4ad3b7;
+	font-size: 14px;
+	color: #FFF;
+	border-width: 0px;
+	width: 97%;
+}

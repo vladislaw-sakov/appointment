@@ -1,0 +1,95 @@
+<div>
+
+  <div class="content-section left-content-section text-center">
+    <div class="col-sm-12"><img src="/assets/images/logo.png" class="logo" /></div>
+    <div class="clearfix"></div>
+    <form>
+      <div class="form-group">
+        <div class="col-sm-4 text-right label">First Name</div>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}" />
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-4 text-right label">Last Name</div>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}" />
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-4 text-right label">Password</div>
+        <div class="col-sm-7">
+          <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}" />
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-4 text-right label">Email</div>
+        <div class="col-sm-7">
+          <input type="text" class="form-control" placeholder="Email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}" />
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-4 text-right label">Location</div>
+        <div class="col-sm-7">
+          <div class="custom-select">
+            <select class="form-control" [(ngModel)]="user.city" [ngModelOptions]="{standalone: true}">
+              <option value="city">City</option>
+            </select>
+          </div>
+          <div class="custom-select">
+            <select class="form-control" [(ngModel)]="user.state" [ngModelOptions]="{standalone: true}">
+              <option value="state">State</option>
+            </select>
+          </div>
+          <div class="custom-select">
+            <select class="form-control" [(ngModel)]="user.country" [ngModelOptions]="{standalone: true}">
+              <option value="">Country</option>
+              <option *ngFor="let country of countryList" [ngValue]="country">{{country}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-7 col-sm-offset-4">
+          <div class="isa_error" *ngIf="errorMessage!=''"><i class="fa fa-times-circle"></i> {{errorMessage}}</div>
+          <div class="isa_success" *ngIf="successMessage!=''"><i class="fa fa-check"></i> {{successMessage}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-7 col-sm-offset-4">
+          <button class="btn-signup" (click)="signup()" [disabled]="isProcessing==true">Create Account</button>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-7 col-sm-offset-4 text-center">
+          Already have an account? <a class="link1" [routerLink]="['../login']">Login here</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+    </form>
+  </div>
+
+  <div class="content-section right-content-section" [style.height]="main_height">
+    <div class="header">
+      <span>Join thousands of others</span> taking control of their health and fitness with DexaFit
+    </div>
+
+    <div class="comments">
+      <div>
+        "I learned more about my health in 30 minutes at DexaFit than I have in 20 years going to my doctor."<br /><br />
+        - Rick Manley
+      </div>
+      <div style="margin-top: 51px">
+        "DexaFit motivates me to stay accountable and complete to the absolute best of my ability."<br /><br />
+        - Amy Fasse
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,15 @@
+
+.left-content-section form .custom-select {
+  width: 32%;
+  margin-right: 1%;
+  float: left;
+}
+
+@media screen and (max-width: 768px) {
+
+  .left-content-section form .custom-select {
+    width: 100%;
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+}

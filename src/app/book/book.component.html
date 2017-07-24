@@ -1,0 +1,93 @@
+
+<div class="side-bar-layout">
+	<div class="main-header">
+		<h1>Book Your Appointment</h1>
+		<div class="clearfix"></div>
+	</div>
+
+
+	<div class="inner-content">
+		<h4>I want to schedule</h4>
+
+		<div class="custom-label">With the following tech</div>
+		<div class="custom-select">
+			<select class="form-control" [(ngModel)]="filter.AppointmentID" [ngModelOptions]="{standalone: true}">
+				<option value="">All Appointment Types</option>
+				<option *ngFor="let sessiontype of sessiontypes" [ngValue]="sessiontype.ID">{{sessiontype.Name}}</option>
+			</select>
+		</div>
+
+		<div class="custom-label">Choose Instructor</div>
+		<div class="custom-select">
+			<select class="form-control" [(ngModel)]="filter.StaffID" [ngModelOptions]="{standalone: true}">
+				<option value="">All Instructors</option>
+				<option *ngFor="let staff of staffs" [ngValue]="staff.ID">{{staff.Name}}</option>
+			</select>
+		</div>
+
+		<div class="custom-label">Choose Area</div>
+		<div class="custom-select">
+			<select class="form-control" [(ngModel)]="filter.LocationID" [ngModelOptions]="{standalone: true}">
+				<option value="">All Locations</option>
+				<option *ngFor="let location of locations" [ngValue]="location.ID">{{location.Name}}</option>
+			</select>
+		</div>
+
+		<h4>Watch the video to see everything available</h4>
+
+		<video width="486" heigth="324" controls>
+			<source src="http://static.videogular.com/assets/videos/videogular.mp4" type="video/mp4">
+			<source src="http://static.videogular.com/assets/videos/videogular.ogg" type="video/ogg">
+			<source src="http://static.videogular.com/assets/videos/videogular.webm" type="video/webm">
+			Your browser does not support video.
+		</video>
+
+	</div>
+
+	<div class="side-bar">
+		<div class="side-bar-inner" *ngIf="!isDetail">
+			<h2 class="text-center">Choose Period of time</h2>
+			<app-calendar [(month)]="mon" [(day)]="day" (search)="onSearch($event)"></app-calendar>
+			<div style="margin-top: 50px;text-align: center;">
+				If you wish to schedule a large group or ask us how partner with businesses, corporate wellness, and physicians.<br /><br />
+				<a class="link4">Get More Infomation Here &gt;</a>
+			</div>
+		</div>
+		<div class="side-bar-inner" *ngIf="isDetail">
+			<h2 (click)="isDetail=false;" style="cursor: pointer;"><span style="color: #636773">&lt;</span> DexaFit San Carlos</h2>
+			<div *ngFor="let key of keys();">
+				<div class="day-item">
+					<div class="date">{{selectedDate | date: 'EEEE MMMM, dd'}}</div>
+					<div class="name">{{key}}</div>
+				</div>
+
+				<div>
+					<div class="time-item" *ngFor="let item of appointments[key]" (click)="book(item)">{{item.StartDateTime | date: 'hh:mm a'}}</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div id="custom-modal-container" class="custom-modal-background" *ngIf="isBooking">
+	<!--<div *ngIf="isBooking" class="custom-modal-inner">
+		<h5>Are you sure to book appointment?</h5>
+
+		<div class="form-group">
+			<div class="col-sm-6">
+				<button class="btn-custom-blue btn-block" (click)="book()" [disabled]="isLoading==true">Book</button>
+			</div>
+			<div class="col-sm-6">
+				<button class="btn-custom-white btn-block" (click)="isBooking = false;">Cancel</button>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+
+	</div>-->
+
+	<div class="custom-modal-inner">
+		<h5><i style="font-size: 44px" class="fa fa-thumbs-up"></i><br /><br />You are all set!</h5>
+
+	</div>
+</div>

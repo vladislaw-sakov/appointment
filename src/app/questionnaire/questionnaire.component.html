@@ -1,0 +1,11 @@
+<div class="main-header">
+	<h1>Questionnaire</h1>
+</div>
+
+<div class="inner-content">
+
+	<!--<div class="typeform-widget" data-url="https://dexafit1.typeform.com/to/hbw2GY" style="width: 100%;" > </div>  <div style="font-family: Sans-Serif;font-size: 12px;color: #999;opacity: 0.5; padding-top: 5px;" > powered by <a href="https://www.typeform.com/examples/forms/registration-form-template/?utm_campaign=xLoi6j&amp;utm_source=typeform.com-9005636-Basic&amp;utm_medium=typeform&amp;utm_content=typeform-embedded-registrationform&amp;utm_term=EN" style="color: #999" target="_blank">Typeform</a> </div>-->
+
+	<iframe class="typeform" *ngIf="type=='new'" [style.height]="frame_height" id="new_form" onload="this.contentWindow.focus()" src="https://dexafit1.typeform.com/to/hbw2GY"></iframe>
+	<iframe class="typeform" *ngIf="type=='old'" [style.height]="frame_height" id="old_form" onload="this.contentWindow.focus()" src="https://dexafit1.typeform.com/to/JtAGLs"></iframe>
+</div>
