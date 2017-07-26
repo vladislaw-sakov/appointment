@@ -1,0 +1,103 @@
+<div id="left-content" [style.height]="main_height">
+
+	<div class="user-info">
+		<img src="/assets/images/photo.jpg" class="photo" />
+		<div class="info">
+			<div style="font-weight: 700">Hello, {{user.firstName}} <img src="/assets/images/white-arrow-drop-down.png" /></div>
+			<div>{{user.email}}</div>
+		</div>
+	</div>
+
+	<div class="btn-shop-container"><button class="btn-shop" [routerLink]="['shop/Body Comp']">Shop and schedule</button></div>
+
+	<ul class="nav-menu">
+		<li><a (mouseover)="setMouseOver(0)" (mouseout)="setMouseOut(0)" [ngClass]="{'active': isUrlActive('/main/vault')}" [routerLink]="['vault']"><img [src]="getImage(0, 'vault')" />MY VAULT</a></li>
+		<li><a (mouseover)="setMouseOver(1)" (mouseout)="setMouseOut(1)" [ngClass]="{'active': mainRoute.url == '/main/'}"><img [src]="getImage(1, 'dashboard')" />DASHBOARDS</a></li>
+		<li><a (mouseover)="setMouseOver(2)" (mouseout)="setMouseOut(2)" [ngClass]="{'active': mainRoute.url == '/main/'}"><img [src]="getImage(2, 'journal')" />JOURNAL</a></li>
+		<li><a (mouseover)="setMouseOver(3)" (mouseout)="setMouseOut(3)" [ngClass]="{'active': mainRoute.url == '/main/'}"><img [src]="getImage(3, 'dexafit-x')" />DEXAFIT X</a></li>
+		<li><a (mouseover)="setMouseOver(4)" (mouseout)="setMouseOut(4)" [ngClass]="{'active': mainRoute.url == '/main/'}"><img [src]="getImage(4, 'newsfeed')" />NEWSFEED</a></li>
+		<li><a (mouseover)="setMouseOver(5)" (mouseout)="setMouseOut(5)" [ngClass]="{'active': mainRoute.url == '/main/'}" (click)="logout()"><img [src]="getImage(5, 'support')" />SUPPORT</a></li>
+	</ul>
+
+	<div class="bottom-logo" [routerLink]="['shop/Body Comp']"><img src="/assets/images/logo-side-menu.png" /></div>
+
+</div>
+
+<div id="right-content" [style.height]="main_height">
+	<router-outlet></router-outlet>
+</div>
+
+<div id="tour-container" class="custom-modal-background" *ngIf="isTour">
+	<div class="tour-inner" [style.margin-top]="modal_top">
+		<div class="arrow-container" (click)="goPage(page_number - 1)">
+			<img src="/assets/images/white-left-arrow.png" *ngIf="page_number!=1" />
+		</div>
+		<div class="main-content">
+			<div class="block-content"><img src="/assets/images/logo-in-oval.png" /></div>
+
+			<div class="block-content" *ngIf="tour_type==1">
+				<div class="block-content-inner" *ngIf="page_number==1">
+					<div class="header">Making your fitness transformation a breeze</div>
+					<div>
+						The DexaFit Vault is convenient way to get access to everything you need to know your body and transform your fitness. Let's get started with a brief tour.
+					</div>
+				</div>
+				<div class="block-content-inner" *ngIf="page_number==2">
+					<div class="header">Shop DexaFit</div>
+					<div>
+						Select Shop DexaFit to schedule or purchase all DexaFit testing, products, and services. Give it a shot now.
+					</div>
+					<div style="margin-top: 16px">
+						<button class="btn-custom-blue" [routerLink]="['shop/Body Comp']">Show Now &gt;</button>
+						<a class="link3" style="margin-left: 17px;" (click)="showTour(2, 5)">or continue valut tour &gt;</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="block-content" *ngIf="tour_type==2">
+				<div class="block-content-inner" *ngIf="page_number==1">
+					<div class="header">Your Vault</div>
+					<div>
+						<b>Store, access, and upload all of your DexaFit testing results, notes, and resources</b>b> you collect throughout your transformation.
+					</div>
+				</div>
+				<div class="block-content-inner" *ngIf="page_number==2">
+					<div class="header">Dashboards</div>
+					<div>
+						Correlate and track your results over time, and <b>see how different diets, habits, and lifestyle choices affect your fitness.</b>
+					</div>
+				</div>
+				<div class="block-content-inner" *ngIf="page_number==3">
+					<div class="header">Journal</div>
+					<div>
+						<b>Submit information about your beliefs, your habits, your diet, your training, </b>and anything else you want to review later or correlate with your testing results.
+					</div>
+				</div>
+				<div class="block-content-inner" *ngIf="page_number==4">
+					<div class="header">DexaFit X</div>
+					<div>
+						<b>Create or join a challenge, a biohack, a research pilot, or an experiment</b> to harness the collective power of a community.
+					</div>
+				</div>
+				<div class="block-content-inner" *ngIf="page_number==5">
+					<div class="header">Newsfeed</div>
+					<div>
+						Dedicated to obsessively profiling, sharing, and reviewing <b>breaking health and fitness news.</b>
+					</div>
+				</div>
+			</div>
+
+			<div class="bullet-container" *ngIf="page_count > 2">
+				<div class="bullet" [ngClass]="{'active': page_number==1}" (click)="goPage(1)"></div>
+				<div class="bullet" [ngClass]="{'active': page_number==2}" (click)="goPage(2)"></div>
+				<div class="bullet" [ngClass]="{'active': page_number==3}" (click)="goPage(3)"></div>
+				<div class="bullet" [ngClass]="{'active': page_number==4}" (click)="goPage(4)"></div>
+				<div class="bullet" [ngClass]="{'active': page_number==5}" (click)="goPage(5)"></div>
+			</div>
+
+		</div>
+		<div class="arrow-container" style="text-align: right;" (click)="goPage(page_number + 1)">
+			<img src="/assets/images/white-right-arrow.png" *ngIf="page_number!=page_count" />
+		</div>
+	</div>
+</div>

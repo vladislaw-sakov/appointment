@@ -1,0 +1,24 @@
+<div class="main-header">
+	<h1 style="text-align: center">Thank you!</h1>
+</div>
+
+<div class="inner-content">
+	<div class="sub-header" style="font-size: 24px;margin-top: 100px;">We're excited to see you on {{datetime | date: 'yyyy-MM-dd hh:mm:ss'}}</div>
+	<h1>IMPORTANT NEXT STEPS</h1>
+	<div class="sub-header">
+		The information you provide is needed before your appointment
+	</div>
+
+	<div class="box-container">
+		<div class="box-item" style="margin-right: 53px;">
+			<div class="sub-header">First-time Client?</div>
+			<div class="content">Submit the pre-test questionnaire below to confirm your appointment.</div>
+			<button class="btn-go" [routerLink]="['../questionnaire/new']">Go <span>&gt;</span></button>
+		</div>
+		<div class="box-item">
+			<div class="sub-header">Existing Client?</div>
+			<div class="content">Submit the follow-up questionnaire below to confirm your appointment.</div>
+			<button class="btn-go" [routerLink]="['../questionnaire/old']">Go <span>&gt;</span></button>
+		</div>
+	</div>
+</div>
